@@ -5,27 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="calender.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="calender1.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="calender.js"></script>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
 
 </head>
-<body onload="initialise()">
-        <button onclick="previous()"> <i class="fa fa-angle-down"></i></button>
+<body onload="initialise();">
+    <div class="nav">
+        <button id="btn1" onclick="previous();"><</button>  
         <span id="thismonth"></span>
-        <button onclick="next()"> <i class="fa fa-angle-up"></i></button>
-    <table id="caltable">
-        <tr id="tr1">
-            <td>Mo</td>
-            <td>Tu</td>
-            <td>We</td>
-            <td>th</td>
-            <td>Fr</td>
-            <td>Sa</td>
-            <td>Su</td>
+        <button id="btn2" onclick="next();">></i></button>
+    </div>
+    <table id="table">
+        <tr>
+            <td id="0"></td>
+            <td id="1"></td>
+            <td id="2"></td>
+            <td id="3"></td>
+            <td id="4"></td>
+            <td id="5"></td>
+            <td id="6"></td>
         </tr>
-       
     </table>
+    <!-- <table>
+        <tr>
+            <td id="date" ></td>
+            <td id="message" ></td>
+        </tr>
+    </table> -->
+<p id="date" ></p>
+<p id="message" ></p>
 
    
 </body>
