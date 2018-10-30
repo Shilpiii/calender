@@ -8,6 +8,8 @@ var today=d.getDate();
 currentMonth=d.getMonth();
 currentYear=d.getFullYear();
 var firstdate=months[currentMonth]+ " " + 1 + " " + currentYear;
+
+//writes dates in calender
 function getDays(){
       for(var i=7;i<=48;i++){
           document.getElementById(i).innerHTML = null;
@@ -31,7 +33,7 @@ function getDays(){
         nextdates();
         prevdates();
 }
-
+//writes previous months dates in currntmonths empty cells
 function  prevdates(){
 var lastDaysOfLastMonth=new Date(currentYear,currentMonth-1,1);
 var DaysInMonth = function(currentMonth,currentYear){
@@ -54,6 +56,8 @@ for(var i=13;i>=7;i--){
     }
 }
 }
+
+////writes nextmonths months dates in currntmonths empty cells
 function nextdates(){
     var d=1;
     for(var i=35;i<=48;i++){
@@ -74,7 +78,9 @@ function nextdates(){
         document.getElementById(i).style.backgroundColor="black"; 
     }
     }}
-  
+ 
+
+//on load shows monthand year in nav
 function initialise(){
         document.getElementById("thismonth").innerHTML=months[currentMonth]+ "  " + currentYear;
    
@@ -85,15 +91,13 @@ function initialise(){
         var dt=new Date(firstdate).toDateString();
         var firstday=dt.substr(0,3);
         var dayname=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-        
+       // creates days  
         for(var i=0;i<=6;i++){
-            document.getElementById(i).innerHTML=dayname[i];
-           
+            document.getElementById(i).innerHTML=dayname[i]; 
         }
-        
-       
+      
+      //creates td dynamically
       var k=7;
-     
             var table =document.getElementById("table");
            for(var i=0;i<=5;i++){   
             var tr=document.createElement('tr');
@@ -101,14 +105,8 @@ function initialise(){
             for(var j=0;j<=6;j++){
             var td=document.createElement('td');
             td.setAttribute("id",k);
-           // td.setAttribute("class","popup");
-            td.onclick =function() {  
-            z=$(this).text(); 
-            var msg= prompt("write Your Schedule for this Day:");
-            //document.getElementById("message").innerHTML=z+" "+cur+" " + msg;
-            msg.classList.toggle("show");
-            //mesg()};
-            };
+          
+            td.onclick =function() {  z=$(this).text(); mesg(); };
     
 
             k++; 
@@ -133,17 +131,17 @@ function initialise(){
             
            
 }
-
+//it promts the message which you want to save on particular date and shows in p as you click on ok.
 function mesg(){
  
     if(z!=""){
 var cur=months[currentMonth];
 var d= new Date();
 var t=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-    //document.getElementById("date").innerHTML += z+" "+cur;
+    
     var msg= prompt("write Your Schedule for this Day:");
-        //document.getElementById("message").innerHTML=z+" "+cur+" " + msg;
-        $(msg).toggle();
+        document.getElementById("message").innerHTML=z+" "+cur+" " +t+" " + msg;
+      
           /* document.getElementById("message").innerHTML +="<b>"+msg+"</b>";
           document.getElementById("message").contentEditable=true; */
          
@@ -154,7 +152,7 @@ var t=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
 
  
  
-
+// to get previous months dates onclicking < button
 function previous(){
 
     if(currentMonth===0){
@@ -196,7 +194,7 @@ if(add == s){
 
 }
 
-
+// to get next months dates onclicking > button
 function next(){
     if(currentMonth<11){
         
